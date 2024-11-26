@@ -118,7 +118,7 @@ return [
             'database' => env('DB_DATABASE', 'dictionary'),
             'options'  => [
                 'ssl' => true, // Ative SSL se estiver usando MongoDB Atlas
-                'database' => env('DB_AUTH_DATABASE', 'admin'), // Database de autenticação
+                'database' => env('DB_DATABASE', 'admin'), // Database de autenticação
             ],
         ],
 
