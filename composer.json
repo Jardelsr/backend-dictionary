@@ -1,0 +1,7 @@
+{
+    "require": {
+        "imanrjb/laravel-mongodb": "^1.0",
+        "tymon/jwt-auth": "^2.1",
+        "predis/predis": "^2.3"
+    }
+}

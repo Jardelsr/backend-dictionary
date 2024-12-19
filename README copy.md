@@ -1,0 +1,1 @@
+comecei criando o projeto laravel
