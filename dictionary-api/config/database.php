@@ -112,6 +112,16 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('MONGO_URI', 'mongodb+srv://user:1234@dictionary.rlwal.mongodb.net/?retryWrites=true&w=majority&appName=dictionary'),
+            'database' => env('DB_DATABASE', 'dictionary'),
+            'options'  => [
+                'ssl' => true, // Ative SSL se estiver usando MongoDB Atlas
+                'database' => env('DB_DATABASE', 'admin'), // Database de autenticação
+            ],
+        ],
+
     ],
 
     /*
