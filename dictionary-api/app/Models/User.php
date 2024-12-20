@@ -45,4 +45,26 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Gera o identificador JWT
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    // Adiciona claims personalizadas no JWT
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Word::class);
+    }
+
+    public function history()
+    {
+        return $this->hasMany(History::class);
+    }
 }
