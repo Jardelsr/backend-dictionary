@@ -6,18 +6,26 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
     // Registro de novo usuário
     public function signup(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:4',
         ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 400);
+        }
+        
         $user = User::create($request->only('name', 'email', 'password'));
 
         $token = JWTAuth::fromUser($user);

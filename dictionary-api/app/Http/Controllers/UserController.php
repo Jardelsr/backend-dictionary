@@ -19,8 +19,6 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        dd($user->favorites());
-
         $favorites = $user->favorites()->orderBy('added_at', 'desc')->get();
 
         return response()->json(['results' => $favorites], 200);

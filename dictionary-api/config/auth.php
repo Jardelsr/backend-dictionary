@@ -40,6 +40,12 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
+        
+        'api' => [
+        'driver' => 'jwt', 
+        'provider' => 'users',
+        'hash' => false,
+    ],
     ],
 
     /*
@@ -64,8 +70,6 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        App\Providers\RouteServiceProvider::class,
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

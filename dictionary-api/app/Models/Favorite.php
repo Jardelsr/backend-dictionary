@@ -4,10 +4,10 @@ namespace App\Models;
 
 use MongoDB\Laravel\Eloquent\Model;
 
-class History extends Model
+class Favorite extends Model
 {
     protected $connection = 'mongodb';
-    protected $collection = 'histories';
+    protected $collection = 'favorites';
 
     protected $fillable = ['user_id', 'word'];
 

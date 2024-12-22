@@ -64,7 +64,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract
 
     public function favorites()
     {
-        return $this->hasMany(Word::class);
+        return $this->hasMany(Favorite::class);
     }
 
     public function history()

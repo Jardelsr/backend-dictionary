@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\History;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class HistoryController extends Controller
+class FavoriteController extends Controller
 {
     // Listar histórico do usuário
-    public function getHistory(Request $request)
+    public function getFavorites(Request $request)
     {
         $user = Auth::user();
 
@@ -18,7 +18,7 @@ class HistoryController extends Controller
         $limit = $request->input('limit', 10); 
         $page = $request->input('page', 1);    
 
-        $query = History::where('user_id', $user->id)->orderBy('created_at', 'desc');
+        $query = Favorite::where('user_id', $user->id)->orderBy('created_at', 'desc');
 
         $totalDocs = $query->count();
 
