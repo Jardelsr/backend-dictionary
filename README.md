@@ -62,9 +62,9 @@ Visualizar palavras favoritas: [GET] /user/me/favorites
 1. **Análise do Desafio**: Nessa etapa fiz uma análise do que foi exigido e que ferramentas poderia utilizar para implementa-lo.
 
 2. **Escolha das Tecnologias**:
-- Escolhi o Laravel porque tenho familiriade com ele e é a stack usada no cargo ao qual me candidato.
-- MongoDB foi escolhido porque achei o serviço de banco de dados gratuito do MongoDB Atlas, o melhor dentre as opções.
-- Docker para garantir que o ambiente de desenvolvimento seja facilmente configurável e consistente entre diferentes desenvolvedores.
+    - Escolhi o Laravel porque tenho familiriade com ele e é a stack usada no cargo ao qual me candidato.
+    - MongoDB foi escolhido porque achei o serviço de banco de dados gratuito do MongoDB Atlas, o melhor dentre as opções.
+    - Docker para garantir que o ambiente de desenvolvimento seja facilmente configurável e consistente entre diferentes desenvolvedores.
 
 3. **Implementação das Funcionalidades**: A API foi construída em etapas, começando pela implementação da autenticação com JWT, seguida pela criação dos endpoints de busca de palavras, favoritos e histórico.
 
