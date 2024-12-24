@@ -6,10 +6,57 @@ use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class FavoriteController extends Controller
 {
-    // Listar histórico do usuário
+    /**
+     * @OA\Get(
+     *     path="/api/user/me/favorites",
+     *     tags={"Favorites"},
+     *     summary="Listar palavras favoritas",
+     *     description="Retorna uma lista de palavras que o usuário marcou como favoritas com paginação.",
+     *     security={{"bearerAuth":{}}}, 
+     *     @OA\Parameter(
+     *         name="limit",
+     *         in="query",
+     *         description="Número de resultados por página",
+     *         required=false,
+     *         @OA\Schema(type="integer", example=10)
+     *     ),
+     *     @OA\Parameter(
+     *         name="page",
+     *         in="query",
+     *         description="Número da página para paginação",
+     *         required=false,
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de palavras favoritas retornada com sucesso.",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="results", type="array",
+     *                 @OA\Items(type="object",
+     *                     @OA\Property(property="word", type="string", example="example"),
+     *                     @OA\Property(property="added", type="string", format="date-time", example="2024-12-23T12:34:56+00:00")
+     *                 )
+     *             ),
+     *             @OA\Property(property="totalDocs", type="integer", example=50),
+     *             @OA\Property(property="page", type="integer", example=1),
+     *             @OA\Property(property="totalPages", type="integer", example=5),
+     *             @OA\Property(property="hasNext", type="boolean", example=true),
+     *             @OA\Property(property="hasPrev", type="boolean", example=false)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Usuário não autenticado.",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Usuário não autenticado.")
+     *         )
+     *     )
+     * )
+     */
     public function getFavorites(Request $request)
     {
         $user = Auth::user();

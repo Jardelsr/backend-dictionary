@@ -10,7 +10,43 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // Registro de novo usuário
+    /**
+     * @OA\Post(
+     *     path="/api/auth/signup",
+     *     tags={"Auth"},
+     *     summary="Registrar um novo usuário",
+     *     description="Permite o registro de um novo usuário na aplicação.",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             type="object",
+     *             required={"name", "email", "password"},
+     *             @OA\Property(property="name", type="string", example="User 1"),
+     *             @OA\Property(property="email", type="string", example="example@email.com"),
+     *             @OA\Property(property="password", type="string", example="test1234")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Usuário registrado com sucesso",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="id", type="string", example="f3a10cec013ab2c1380acef"),
+     *             @OA\Property(property="name", type="string", example="User 1"),
+     *             @OA\Property(property="token", type="string", example="Bearer JWT.Token")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Erro de validação",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Validation failed"),
+     *             @OA\Property(property="errors", type="object", additionalProperties={"type": "string"})
+     *         )
+     *     )
+     * )
+     */
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -37,7 +73,41 @@ class AuthController extends Controller
         ], 201);
     }
 
-    // Login do usuário
+    /**
+     * @OA\Post(
+     *     path="/api/auth/signin",
+     *     tags={"Auth"},
+     *     summary="Autenticar um usuário",
+     *     description="Permite que um usuário existente faça login.",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             type="object",
+     *             required={"email", "password"},
+     *             @OA\Property(property="email", type="string", example="example@email.com"),
+     *             @OA\Property(property="password", type="string", example="test1234")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Usuário autenticado com sucesso",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="id", type="string", example="f3a10cec013ab2c1380acef"),
+     *             @OA\Property(property="name", type="string", example="User 1"),
+     *             @OA\Property(property="token", type="string", example="Bearer JWT.Token")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Credenciais inválidas",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Credenciais inválidas")
+     *         )
+     *     )
+     * )
+     */
     public function signin(Request $request)
     {
         $credentials = $request->only('email', 'password');

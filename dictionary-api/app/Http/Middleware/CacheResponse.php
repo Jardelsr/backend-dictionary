@@ -10,11 +10,25 @@ class CacheResponse
 {
     public function handle($request, Closure $next)
     {
-        $key = md5($request->fullUrl());
+        $nonCacheableRoutes = [
+            'user/me/favorites',
+            'user/me/history',
+        ];
+
+        // Utilizando fullUrl() para garantir que a URL completa seja verificada, incluindo parâmetros de query
+        $fullUrl = $request->fullUrl();
+        
+        foreach ($nonCacheableRoutes as $route) {
+            if (strpos($fullUrl, $route) !== false) {
+                return $next($request);
+            }
+        }
+
+        // Gerenciamento de cache para outras rotas
+        $key = md5($fullUrl);
 
         if (Cache::has($key)) {
             $cachedContent = Cache::get($key);
-
             $response = new Response($cachedContent);
             $response->headers->set('x-cache', 'HIT');
             return $response;
