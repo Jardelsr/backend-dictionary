@@ -59,24 +59,21 @@ Visualizar palavras favoritas: [GET] /user/me/favorites
 ```
 
 ## Processo de Investigação e Desenvolvimento
-1. Análise do Desafio
-Nessa etapa fiz uma análise do que foi exigido e que ferramentas poderia utilizar para implementa-lo.
+1. **Análise do Desafio**: Nessa etapa fiz uma análise do que foi exigido e que ferramentas poderia utilizar para implementa-lo.
 
-2. Escolha das Tecnologias
+2. **Escolha das Tecnologias**:
 - Escolhi o Laravel porque tenho familiriade com ele e é a stack usada no cargo ao qual me candidato.
 - MongoDB foi escolhido porque achei o serviço de banco de dados gratuito do MongoDB Atlas, o melhor dentre as opções.
 - Docker para garantir que o ambiente de desenvolvimento seja facilmente configurável e consistente entre diferentes desenvolvedores.
 
-3. Implementação das Funcionalidades
-A API foi construída em etapas, começando pela implementação da autenticação com JWT, seguida pela criação dos endpoints de busca de palavras, favoritos e histórico.
+3. **Implementação das Funcionalidades**: A API foi construída em etapas, começando pela implementação da autenticação com JWT, seguida pela criação dos endpoints de busca de palavras, favoritos e histórico.
 
-4. Cache
-Depois utilizei um middleware para armazenar as respostas da API externa, associando a chave de cache à URL da requisição. Isso garantiu que buscas repetidas por palavras não precisassem ser feitas novamente para cada usuário.
+4. **Cache**: Depois utilizei um middleware para armazenar as respostas da API externa, associando a chave de cache à URL da requisição. Isso garantiu que buscas repetidas por palavras não precisassem ser feitas novamente para cada usuário.
 
-5. Testes
-Foi utilizado o PHPUnit para realizar testes unitários, garantindo que os endpoints estivessem funcionando conforme o esperado.
+5. **Testes**: Foi utilizado o PHPUnit para realizar testes unitários, garantindo que os endpoints estivessem funcionando conforme o esperado.
 
-6. Documentação
-A documentação foi criada utilizando OpenAPI 3.0, e o Swagger foi integrado para facilitar a visualização dos endpoints e das respostas da API.
+6. **Documentação**: A documentação foi criada utilizando OpenAPI 3.0, e o Swagger foi integrado para facilitar a visualização dos endpoints e das respostas da API.
+
+
 
 This is a challenge by Coodesh.
