@@ -9,7 +9,6 @@ Este é um desafio de back-end onde foi desenvolvido um sistema para interagir c
 - **Banco de Dados**: MongoDB
 - **Autenticação**: JWT (JSON Web Token)
 - **Docker**: Para ambiente de desenvolvimento e deploy
-- **Testes**: PHPUnit
 - **Documentação da API**: OpenAPI 3.0 (Swagger)
 
 ## Instalação e Uso
@@ -18,18 +17,33 @@ Este é um desafio de back-end onde foi desenvolvido um sistema para interagir c
 
 1. Docker instalado na máquina.
 2. Composer para gerenciar dependências do PHP.
-3. MongoDB configurados ou Docker configurado para rodar esses serviços.
+3. Docker configurado para rodar esses serviços.
 
-### Passos para rodar o projeto
+### Passos para rodar o projeto caso esteja usando Docker:
 
-1. **Clone o repositório**:
+1. **Clone o repositório e acesse o diretório do projeto**:
    ```bash
-   git clone https://github.com/seu-usuario/backend-dictionary.git
+   git clone https://github.com/Jardelsr/backend-dictionary.git
+   cd backend-dictionary       
    cd dictionary-api
 
-2. **Suba os containers com Docker (caso esteja usando Docker)**:
+2. **Renomeie o arquivo `.env.example` para `.env`**
+
+3. **Suba os containers com Docker (caso esteja usando Docker)**:
     ```bash
     docker-compose up -d
+
+4. **Acesse a API**: Agora você pode acessar a API na URL: http://localhost:8000/api/ no Postman ou pela documentação, que pode ser acessada diretamente através do Swagger por meio da URL: http://localhost:8000/api/documentation.
+
+### Passos para rodar o projeto localmente:
+
+1. **Clone o repositório e acesse o diretório do projeto**:
+   ```bash
+   git clone https://github.com/Jardelsr/backend-dictionary.git
+   cd backend-dictionary       
+   cd dictionary-api
+
+2. **Renomeie o arquivo `.env.example` para `.env`**
 
 3. **Instale as dependências do projeto**: Se estiver rodando fora do Docker, instale as dependências com Composer:
     ```bash
@@ -39,10 +53,13 @@ Este é um desafio de back-end onde foi desenvolvido um sistema para interagir c
     ```bash
     php artisan serve
 
-5. **Acesse a API**: Agora você pode acessar a API na URL: http://localhost:8000/api/ no Postman ou pela documentação, que pode ser acessada diretamente através do Swagger por meio da URL: http://localhost:8000/api/documentation.
+5. **Acesse a API**: Agora você pode acessar a API no Postman ou pela documentação, que pode ser acessada diretamente através do Swagger por meio da URL: http://localhost:8000/api/documentation.
 
-## Funcionalidades
+## Funcionalidades e suas respectivas rotas
 ```bash
+# Home
+Home [GET] /api
+
 # Autenticação
 Cadastro de usuário: [POST] /auth/signup
 Login de usuário: [POST] /auth/signin
@@ -70,9 +87,7 @@ Visualizar palavras favoritas: [GET] /user/me/favorites
 
 4. **Cache**: Depois utilizei um middleware para armazenar as respostas da API externa, associando a chave de cache à URL da requisição. Isso garantiu que buscas repetidas por palavras não precisassem ser feitas novamente para cada usuário.
 
-5. **Testes**: Foi utilizado o PHPUnit para realizar testes unitários, garantindo que os endpoints estivessem funcionando conforme o esperado.
-
-6. **Documentação**: A documentação foi criada utilizando OpenAPI 3.0, e o Swagger foi integrado para facilitar a visualização dos endpoints e das respostas da API.
+5. **Documentação**: A documentação foi criada utilizando OpenAPI 3.0, e o Swagger foi integrado para facilitar a visualização dos endpoints e das respostas da API.
 
 
 

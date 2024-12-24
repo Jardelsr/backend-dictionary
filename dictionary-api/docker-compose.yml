@@ -3,15 +3,7 @@ services:
     build: .
     volumes:
       - .:/var/www
-    depends_on:
-      - redis
-    networks:
-      - app-network
-
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
+      - ./storage:/var/www/storage
     networks:
       - app-network
 

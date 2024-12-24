@@ -9,6 +9,8 @@ servers:
   -
     url: 'http://localhost:8000'
     description: 'Servidor Local'
+  -
+    url: /api
 paths:
   /api/auth/signup:
     post:
