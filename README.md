@@ -24,7 +24,7 @@ Este é um desafio de back-end onde foi desenvolvido um sistema para interagir c
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/dictionary-api.git
+   git clone https://github.com/seu-usuario/backend-dictionary.git
    cd dictionary-api
 
 2. **Suba os containers com Docker (caso esteja usando Docker)**:
@@ -56,14 +56,11 @@ Remover palavra dos favoritos: [DELETE] /entries/en/{word}/unfavorite
 # Histórico e Favoritos do Usuário
 Visualizar histórico de palavras: [GET] /user/me/history
 Visualizar palavras favoritas: [GET] /user/me/favorites
-
-# Cache
-Utilização de um middleware para cachear as respostas da API, acelerando a consulta de palavras frequentemente buscadas.
 ```
 
 ## Processo de Investigação e Desenvolvimento
 1. Análise do Desafio
-O desafio exigia a implementação de uma API RESTful que consumisse uma API externa (Free Dictionary) para oferecer informações de palavras, mantendo funcionalidades como login, histórico e favoritos. Além disso, um cache eficiente deveria ser implementado para otimizar a performance de consultas repetidas. Nessa etapa fiz uma análise do que foi exigido e que ferramentas poderia utilizar para implementa-lo.
+Nessa etapa fiz uma análise do que foi exigido e que ferramentas poderia utilizar para implementa-lo.
 
 2. Escolha das Tecnologias
 - Escolhi o Laravel porque tenho familiriade com ele e é a stack usada no cargo ao qual me candidato.
